@@ -1,20 +1,29 @@
 
-
 import { createTheme } from '@mui/material/styles'
 
 const dark = createTheme({
+  palette: {
+    common: {
+      black: 'hsl(207, 26%, 17%)',
+      white: 'hsl(0, 0%, 100%)',
+    },
 
-  colors: {
-    primary: 'hsl(209, 23%, 22%)',
+    primary: {
+      main: 'hsl(209, 23%, 22%)',
+    },
 
-    background: 'hsl(207, 26%, 17%)',
-    text: 'hsl(0, 0%, 100%)',
+    background: {
+      default: 'hsl(207, 26%, 17%)',
+    },
+  
+    text: {
+      primary: 'hsl(0, 0%, 100%)',
+    },
   },
 
-  fonts: {
-    primary: 'Nunito Sans, sans-serif',
-  }
-
+  typography: {
+    fontFamily: 'Nunito-sans, sans-serif',
+  },
 
 })
 

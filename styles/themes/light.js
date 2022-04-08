@@ -9,8 +9,6 @@ const light = createTheme({
     background: 'hsl(0, 0%, 52%)',
     text: 'hsl(200, 15%, 8%)',
   },
-
-
 })
 
 export default light

@@ -3,4 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+const images = {
+  domains: [
+    'flagcdn.com',
+    'upload.wikimedia.org'
+],
+}
+
+
+
+module.exports = {
+  nextConfig,
+  images
+}

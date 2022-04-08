@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import slugify from 'slugify'
 
@@ -12,15 +11,7 @@ import {
 import Card from '../src/components/Card'
 import TemplateDefault from '../src/templates/Default'
 
-const Home = () => {
-  const [countries, setCountries] = useState([])
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v2/all')
-      .then(response => response.json())
-      .then(data => setCountries(data))
-  }, [])
-
+const Home = ({ countries }) => {
   return (
     <>
       <TemplateDefault />
@@ -32,7 +23,7 @@ const Home = () => {
 
                   return (
                       <Grid key={country.name} item xs={12} sm={6} md={3} sx={{ marginBottom: 9 }}>
-                        <Link href={`${name}`} passHref>
+                        <Link href={`/${name}`} passHref>
                           <LinkMUI sx={{ textDecoration: 'none' }}>
                             <Card
                               image={country.flags.svg}
@@ -54,3 +45,14 @@ const Home = () => {
 }
 
 export default Home
+
+export const getStaticProps = async () => {
+  const response = await fetch('https://restcountries.com/v2/all')
+  const data = await response.json()
+  
+  return {
+    props: {
+      countries: data,
+    }
+  }
+}

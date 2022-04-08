@@ -17,6 +17,7 @@ const Card = ({ image, title, population, region, capital}) => {
       background: 'hsl(209, 23%, 22%)',
       color: 'hsl(0, 0%, 100%)',
       }}
+      elevation={0}
     >
 
       <CardMedia 
@@ -28,17 +29,18 @@ const Card = ({ image, title, population, region, capital}) => {
       />
 
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography component="h2" variant="h5" sx={{ marginBottom: 2, fontWeight: 'bold' }}>
           {title}
         </Typography>
-        <Typography>
-          Population:{population}
+
+        <Typography component="h3" variant="body2" sx={{ marginBottom: 0.5 }}>
+          <b>Population:</b> {population.toLocaleString('pt-BR')}
         </Typography>
-        <Typography>
-          Region:{region}
+        <Typography component="h3" variant="body2" sx={{ marginBottom: 0.5 }}>
+          <b>Region:</b> {region}
         </Typography>
-        <Typography>
-          Capital:{capital}
+        <Typography component="h3" variant="body2" >
+          <b>Capital:</b> {capital}
         </Typography>
       </CardContent>
     </CardMUI>

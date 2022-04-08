@@ -1,30 +1,18 @@
+import Link from 'next/link'
+import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material'
 
-import { AppBar, Box, Button, Container, Toolbar, Typography } from '@mui/material'
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import dark from '../../../styles/themes/dark'
 
-import { 
-  HeaderBox,
- } from './styles'
-
-const Header = ({theme, toggleTheme}) => {
+const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" elevation={2} sx={{ backgroundColor: theme.colors.primary }}>
+      <AppBar position="static" elevation={0} sx={{ backgroundColor: dark.palette.primary.main }}>
         <Container maxWidth="xl">
           <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer', color: theme.colors.text }}>Where in the world?</Typography>
-          <Button
-            onClick={toggleTheme}
-            sx={{
-              color: 'white',
-              '&:hover': {
-                background: 'transparent',
-              },
-            }}
-          >
-            <DarkModeOutlinedIcon />
-            <Typography>Dark Mode</Typography>
-          </Button>
+          <Link href="/" passHref>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer', color: dark.palette.secondary }}>Where in the world?</Typography>
+          </Link>  
+          
           </Toolbar>
         </Container>
       </AppBar>

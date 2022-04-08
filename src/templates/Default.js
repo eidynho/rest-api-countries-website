@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { ThemeProvider } from '@mui/material'
+import { Box, ThemeProvider } from '@mui/material'
 
 import lightTheme from '../../styles/themes/light'
 import darkTheme from '../../styles/themes/dark'
-
-
 import Header from "../components/Header";
 
-const Default = () => {
+
+const Default = ({ children }) => {
   const [theme, setTheme] = useState(darkTheme)
 
   const toggleTheme = () => {
@@ -15,9 +14,14 @@ const Default = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Header theme={theme} toggleTheme={toggleTheme} />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Box sx={{ background: darkTheme.palette.primary.main}}>
+          {children}
+        </Box>
+      </ThemeProvider>
+    </>
 
   )
 }
