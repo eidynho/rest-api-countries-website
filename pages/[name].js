@@ -22,14 +22,14 @@ const Country = ({ country }) => {
   return (
     <>
       <TemplateDefault />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" align='center'>
         <Link href="/" passHref>
-          <Button sx={{ height: '40px', width: '150px', background: dark.palette.primary.main, color: dark.palette.text.primary }} elevation={3}>
+          <Button sx={{ height: '40px', width: '150px', background: dark.palette.primary.main, color: dark.palette.text.primary, marginTop: 10 }} elevation={3}>
             <KeyboardBackspaceIcon sx={{ marginRight: 1 }} />
             Back
           </Button>
         </Link>
-        <Grid container sx={{ height:'93vh', display: 'flex', alignItems: 'center'}}>
+        <Grid container sx={{ height:'80vh', display: 'flex', alignItems: 'center'}}>
           <Grid item xs={12} md={6}>
             <Image
               src={country[0].flags.svg}
@@ -56,7 +56,7 @@ const Country = ({ country }) => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={3} sx={{ marginTop: 1 }}>
+          <Grid item xs={12} md={2} sx={{ marginTop: 1}}>
             <Box>
               <Typography component="h3" variant="body2" sx={{ marginBottom: 0.5 }}><b>Top Level Domain:</b> {country[0].topLevelDomain}</Typography>
 
