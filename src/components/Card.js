@@ -7,15 +7,15 @@ import {
 
 
 
-const Card = ({ image, title, population, region, capital}) => {
+const Card = ({ image, title, population, region, capital, theme }) => {
 
   return (
     <CardMUI sx={{ 
       height: '109%',
       width: '90%',
       margin: 'auto',
-      background: 'hsl(209, 23%, 22%)',
-      color: 'hsl(0, 0%, 100%)',
+      background: theme.palette.main.primary,
+      color: theme.palette.text.primary,
       }}
       elevation={0}
     >
