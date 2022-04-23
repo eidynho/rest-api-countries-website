@@ -62,28 +62,48 @@ const Country = ({ country }) => {
           </Link>
           <Grid container sx={{ height:'80vh', display: 'flex', alignItems: 'center'}}>
             <Grid item xs={12} md={6}>
-              <Image
-                src={country[0].flags.svg}
-                alt={country[0].name}
-                width={560}
-                height={350}
-              />
+              {
+                country[0].flags ? (
+                  <Image
+                    src={country[0].flags.svg}
+                    alt={country[0].name}
+                    width={560}
+                    height={350}
+                  />
+                ) : (
+                  'No flag image'
+                )
+              }
             </Grid>
             <Grid item xs={12} md={3} sx={{ color: theme.palette.text.primary }}>
               <Box>
-                <Typography component="h2" variant="h4" sx={{ fontWeight: '600', marginBottom: 3 }}>{country[0].name}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Native Name:</b> {country[0].nativeName}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Population:</b> {country[0].population.toLocaleString('pt-BR')}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Region:</b> {country[0].region}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Sub Region:</b> {country[0].subregion}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Capital:</b> {country[0].capital}</Typography>
+                <Typography component="h2" variant="h4" sx={{ fontWeight: '600', marginBottom: 3 }}>{country[0].name ? country[0].name : 'No information'}</Typography>
+                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Native Name:</b> {country[0].nativeName ? country[0].nativeName : 'No information'}</Typography>
+                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Population:</b> {country[0].population ? country[0].population.toLocaleString('pt-BR') : 'No information'}</Typography>
+                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Region:</b> {country[0].region ? country[0].region : 'No information'}</Typography>
+                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Sub Region:</b> {country[0].subregion ? country[0].subregion : 'No information'}</Typography>
+                {
+                  
+                }
+                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Capital:</b> {country[0].capital ? country[0].capital : 'No information'}</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={2} sx={{ marginTop: 1, color: theme.palette.text.primary }}>
               <Box>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Top Level Domain:</b> {country[0].topLevelDomain}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Currencies:</b> {country[0].currencies[0].name}</Typography>
-                <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Language:</b> {country[0].languages[0].name}</Typography>
+                {
+                  country[0].topLevelDomain &&
+                    <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}>
+                      <b>Top Level Domain:</b> {country[0].topLevelDomain}
+                    </Typography>
+                }
+                {
+                  country[0].currencies &&
+                    <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Currencies:</b> {country[0].currencies[0].name}</Typography>
+                }
+                {
+                  country[0].languages &&
+                    <Typography component="h3" variant="body2" sx={{ marginBottom: 1.2 }}><b>Language:</b> {country[0].languages[0].name}</Typography>
+                }
               </Box>
             </Grid>
         

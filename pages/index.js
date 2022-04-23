@@ -51,14 +51,15 @@ const Home = ({ countries }) => {
           <Grid container spacing={4}>
               {
                 countries.map( country => {
-                  const name = slugify(country.name).toLowerCase()
+                  const name = slugify(country.name, {
+                    replacement: '%20'
+                  }).toLowerCase()
 
                   return (
                       <Grid key={country.name} item xs={12} sm={6} md={3} sx={{ marginBottom: 9 }}>
                         <Link href={`/${name}`} passHref>
                           <LinkMUI sx={{ textDecoration: 'none' }}>
                             <Card
-                              key={country.id}
                               image={country.flags.svg}
                               title={country.name}
                               population={country.population}
